@@ -50,10 +50,19 @@ func (t *TerraformCli) Apply() *TerraformAction {
 	}
 }
 
+func (t *TerraformCli) Get(params *TerraformGetParams) *TerraformAction {
+	return &TerraformAction{
+		action: "get",
+		bin:    t,
+		Dir:    t.workingDirectory,
+		params: params,
+	}
+}
+
 func (t *TerraformCli) fetchVersion() {
 	t.version = "dev"
 }
-func (client *TerraformCli) WithWorkingDirectory(workingDirectory string) (*TerraformCli) {
+func (client *TerraformCli) WithWorkingDirectory(workingDirectory string) *TerraformCli {
 	client.workingDirectory = workingDirectory
 	return client
 }
