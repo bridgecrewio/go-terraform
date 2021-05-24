@@ -14,9 +14,9 @@ func (t TerraformGetParams) Opts() map[string][]string {
 }
 
 func (t TerraformGetParams) OptsString() string {
-	return extractOptsString(t)
+	return t.Directory
 }
 
 func (t TerraformGetParams) OptsStringSlice() []string {
-	return extractOptsStringSlice(t)
+	return []string{t.Directory}
 }
